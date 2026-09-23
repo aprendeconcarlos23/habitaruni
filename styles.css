@@ -1,0 +1,625 @@
+/* ============================================================
+   HABITAR UNIVERSIDAD — Landing page
+   Identidad visual · Paleta: teal #2B9895 · violeta #5D418D ·
+   crema #FBF6F0 · dorado #E3C04B
+   Tipografías: League Spartan (títulos) · Cormorant (resaltar) ·
+   Montserrat (textos)
+   Mobile first · Responsive · Accesible
+============================================================ */
+
+/* ---------- 1. Variables de diseño ---------- */
+:root{
+  --teal:            #2B9895;   /* color primario / marca */
+  --teal-oscuro:     #1F6F6C;
+  --teal-claro:      #E0F1EF;
+  --violeta:         #5D418D;   /* color secundario */
+  --violeta-suave:   #8A6FBC;
+  --violeta-oscuro:  #4E3678;
+  --violeta-claro:   #F0EAF6;
+  --crema:           #FBF6F0;   /* fondo principal */
+  --blanco:          #FFFFFF;
+  --dorado:          #E3C04B;   /* acento */
+  --dorado-claro:    #F6ECC9;
+  --tinta:           #29261F;   /* cuerpo oscuro cálido */
+  --texto:           #5B574C;
+  --sutil:           rgba(93,65,141,.13);
+  --radio:           20px;
+  --sombra:          0 14px 30px rgba(41,38,31,.14);
+  --fuente:          'Montserrat',system-ui,sans-serif;
+  --titulos:         'League Spartan','Montserrat',sans-serif;
+  --serif:           'Cormorant','Georgia',serif;
+}
+
+/* ---------- 2. Reset y base ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  margin:0;
+  font-family:var(--fuente);
+  color:var(--tinta);
+  background:var(--crema);
+  line-height:1.58;
+  text-rendering:optimizeLegibility;
+}
+img,svg{max-width:100%}
+a{color:inherit}
+
+/* Enlace para saltar al contenido (accesibilidad) */
+.saltar{
+  position:absolute;left:-9999px;top:0;
+  background:var(--teal);color:var(--crema);
+  padding:.7rem 1rem;border-radius:10px;z-index:60;
+}
+.saltar:focus{left:1rem;top:.6rem}
+
+/* ---------- 3. Contenedor y textos ---------- */
+.contenedor{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 1.25rem;
+}
+.etiqueta{
+  display:inline-block;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1.15rem,3.6vw,1.45rem);
+  color:var(--violeta);
+  margin:0 0 .55rem;
+}
+.titulo{
+  font-family:var(--titulos);
+  font-size:clamp(1.8rem,5.6vw,2.9rem);
+  font-weight:700;
+  letter-spacing:.01em;
+  color:var(--teal-oscuro);
+  line-height:1.14;
+  margin:0;
+}
+.intro{
+  font-size:clamp(1rem,3.2vw,1.3rem);
+  color:var(--texto);
+  margin:1.1rem 0 0;
+}
+.bloque{
+  padding:clamp(3.6rem,11vw,7rem) 0;
+  scroll-margin-top:84px;
+}
+.mano{
+  font-family:var(--serif);
+  font-style:italic;
+}
+
+/* Resaltado tipo marcador (dorado) */
+.subrayado{
+  background-image:linear-gradient(180deg,transparent 66%,rgba(227,192,75,.5) 66%);
+  padding:0 .06em;
+}
+
+/* ---------- 4. Botones ---------- */
+.boton{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  font-family:var(--fuente);font-weight:700;font-size:.98rem;
+  letter-spacing:.02em;
+  background:var(--teal);color:var(--crema);
+  border:0;border-radius:999px;padding:.9rem 1.7rem;
+  text-decoration:none;cursor:pointer;
+  box-shadow:0 10px 22px rgba(31,111,108,.22);
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.boton:hover{
+  background:var(--teal-oscuro);
+  transform:translateY(-2px);
+  box-shadow:0 16px 28px rgba(31,111,108,.3);
+}
+.boton:active{transform:translateY(0)}
+.boton:focus-visible{outline:3px solid var(--dorado);outline-offset:3px}
+
+.boton-chico{
+  padding:.55rem 1.15rem;font-size:.88rem;box-shadow:none;
+}
+.boton-grande{
+  font-size:clamp(1rem,3.2vw,1.2rem);
+  padding:1.05rem 1.9rem;
+  width:min(100%,440px);
+}
+.boton-gigante{
+  font-size:clamp(1.1rem,4vw,1.4rem);
+  background:var(--violeta);color:var(--crema);
+  padding:1.3rem 2.1rem;
+  width:min(100%,520px);
+  box-shadow:0 18px 34px rgba(93,65,141,.32);
+}
+.boton-gigante:hover{background:var(--violeta-oscuro)}
+
+/* ---------- 4b. Fotos (estilo sticker, marco redondeado) ---------- */
+.foto{
+  display:block;width:100%;
+  aspect-ratio:3/2;
+  object-fit:cover;
+  border-radius:18px;
+  border:3px solid var(--blanco);
+  box-shadow:0 14px 28px rgba(41,38,31,.18);
+  margin:1.6rem auto 0;
+}
+.foto--chica{max-width:400px}
+.foto--panoramica{aspect-ratio:5/2}
+.portada-foto{max-width:720px;margin:1.7rem auto 0}
+
+/* ---------- 5. Barra superior ---------- */
+.barra{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;gap:.9rem;
+  background:var(--crema);
+  border-bottom:1px solid var(--sutil);
+  padding:.7rem 1.25rem;
+}
+.marca{
+  display:flex;align-items:center;
+  text-decoration:none;
+}
+.marca-logo{
+  width:50px;height:50px;
+  object-fit:contain;
+  border-radius:50%;
+  background:var(--blanco);
+  box-shadow:0 2px 10px rgba(41,38,31,.2);
+}
+
+/* ---------- 6. BLOQUE 1 · PORTADA ---------- */
+.portada{
+  position:relative;overflow:hidden;
+  min-height:calc(100vh - 58px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem 1.25rem;
+}
+
+/* Formas orgánicas del "universo sticker" */
+.decor{position:absolute;border-radius:50%;pointer-events:none}
+.decor--a{
+  width:min(420px,60vw);height:min(420px,60vw);
+  background:var(--teal-claro);
+  top:-110px;left:-90px;
+  opacity:.9;
+}
+.decor--b{
+  width:min(360px,52vw);height:min(360px,52vw);
+  background:rgba(227,192,75,.42);
+  bottom:-110px;right:-80px;
+}
+.decor--c{
+  width:170px;height:170px;
+  background:rgba(93,65,141,.14);
+  top:34%;right:-40px;
+}
+.decor--d{
+  width:86px;height:86px;
+  background:rgba(43,152,149,.35);
+  bottom:26%;left:4%;
+}
+.decor--e{
+  width:120px;height:120px;
+  border:14px solid rgba(227,192,75,.5);
+  top:8%;right:12%;
+}
+@media (max-width:380px){
+  .decor--c,.decor--d,.decor--e{display:none}
+}
+
+.portada-contenido{
+  position:relative;z-index:1;
+  width:100%;max-width:780px;
+  text-align:center;
+}
+
+/* Logo largo de la marca como título de la portada.
+   El PNG es 1184x516 (ratio 2.29:1), con fondo transparente y
+   la paleta violeta/teal/dorado: se luce sobre el fondo crema.
+   Tamaño fluido: ~280px en móvil chico y ~460px en pantallas
+   grandes, siempre centrado y sin desbordar el ancho disponible. */
+.portada-contenido h1{margin:0}
+.portada-logo{
+  display:block;
+  width:clamp(260px,58vw,460px);
+  max-width:100%;
+  height:auto;
+  margin:0 auto;
+  filter:drop-shadow(0 6px 14px rgba(41,38,31,.15));
+}
+.h1-linea{
+  display:block;
+  font-family:var(--titulos);
+  font-size:clamp(2.7rem,10.5vw,5.2rem);
+  font-weight:700;letter-spacing:.01em;line-height:.95;
+  color:var(--teal);
+}
+.h1-linea--clara{
+  color:var(--violeta);font-weight:400;font-size:.82em;
+}
+.portada-pregunta{
+  font-size:clamp(1.1rem,4.2vw,1.6rem);
+  font-weight:600;color:var(--tinta);
+  margin:1.4rem 0 0;
+}
+.portada-texto{
+  font-size:clamp(.95rem,3.2vw,1.15rem);
+  color:var(--texto);line-height:1.62;
+  max-width:60ch;margin:1.05rem auto 0;
+}
+.portada-eslogan{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1.15rem,4.2vw,1.65rem);
+  color:var(--teal-oscuro);
+  margin:1.4rem 0 0;
+}
+.portada-contenido .boton{width:min(100%,470px);margin-top:1.8rem}
+.portada-aviso{
+  font-size:.86rem;color:var(--texto);
+  margin:.95rem 0 0;
+}
+.portada-vermas{
+  display:inline-flex;align-items:center;gap:.4rem;
+  margin:2.4rem 0 0;
+  color:var(--teal);font-weight:600;
+  text-decoration:none;
+}
+.flecha-abajo{width:18px;height:18px}
+.portada-vermas .flecha-abajo{transition:transform .2s ease}
+.portada-vermas:hover .flecha-abajo{transform:translateY(3px)}
+
+/* ---------- 7. BLOQUE 2 · ¿Quizás te está pasando? ---------- */
+.frases{
+  list-style:none;padding:0;
+  margin:1.4rem auto 0;
+  display:grid;gap:.9rem;
+  max-width:920px;
+}
+.frase{
+  display:flex;gap:.7rem;align-items:flex-start;
+  background:var(--blanco);
+  border:1px solid var(--sutil);
+  border-radius:var(--radio);
+  padding:.95rem 1.2rem;
+  font-size:clamp(1rem,3.2vw,1.22rem);
+  color:var(--tinta);
+  box-shadow:0 6px 16px rgba(41,38,31,.09);
+}
+.frase::before{
+  content:"";flex:0 0 auto;
+  width:11px;height:11px;border-radius:50%;
+  margin-top:.35rem;
+}
+.frase:nth-child(3n+1)::before{background:var(--dorado)}
+.frase:nth-child(3n+2)::before{background:var(--teal)}
+.frase:nth-child(3n)::before{background:var(--violeta)}
+.cierre{
+  text-align:center;
+  font-size:clamp(1.05rem,3.4vw,1.32rem);
+  color:var(--tinta);line-height:1.55;
+  max-width:640px;
+  margin:2rem auto 0;
+}
+.cierre strong{color:var(--teal);font-weight:700}
+
+/* ---------- 8. BLOQUE 3 · ¿Qué es HABITAR? ---------- */
+.que-es-grid{
+  display:grid;gap:2.2rem;
+  margin:2.2rem 0 0;
+}
+.que-es-texto p{
+  font-size:clamp(1rem,3.2vw,1.2rem);
+  color:var(--texto);line-height:1.65;
+  margin:.4rem 0;
+}
+.que-es-destacado{
+  font-size:clamp(1.15rem,3.8vw,1.5rem);
+  font-weight:700;color:var(--violeta);
+}
+.que-es-texto strong{color:var(--teal)}
+.que-es-texto .subrayado{font-weight:600;color:var(--tinta)}
+
+.tarjeta{
+  background:var(--blanco);
+  border:1px solid var(--sutil);
+  border-radius:26px;
+  padding:clamp(1.6rem,5vw,2.3rem);
+  box-shadow:var(--sombra);
+}
+.compartir-titulo{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1.35rem,4.4vw,1.7rem);
+  color:var(--violeta);
+  margin:0;
+}
+.compartir-lista{
+  list-style:none;padding:0;
+  margin:1.05rem 0 0;
+  display:grid;gap:.65rem;
+}
+.compartir-lista li{
+  display:flex;align-items:center;gap:.6rem;
+  background:rgba(43,152,149,.12);
+  border:1px solid rgba(43,152,149,.25);
+  border-radius:999px;
+  padding:.55rem .95rem;
+  font-size:.95rem;font-weight:600;color:var(--teal-oscuro);
+}
+.compartir-lista li span{font-size:1.1rem}
+.compartir-sin{
+  margin:1.7rem 0 0;
+  font-size:clamp(.98rem,3.2vw,1.15rem);
+  color:var(--tinta);text-align:center;line-height:1.6;
+}
+.compartir-sin em{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.25em;color:var(--violeta);
+}
+
+/* ---------- 9. BLOQUE 4 · LOS 6 EJES HABITAR (corazón del método) ---------- */
+.bloque-ejes{
+  background:linear-gradient(168deg,var(--violeta-oscuro) 0%,var(--violeta) 52%,var(--violeta-suave) 100%);
+  color:var(--crema);
+  position:relative;overflow:hidden;
+}
+.bloque-ejes::before{
+  content:"";position:absolute;
+  width:280px;height:280px;border-radius:50%;
+  background:rgba(43,152,149,.16);
+  top:-90px;right:-70px;
+}
+.bloque-ejes::after{
+  content:"";position:absolute;
+  width:220px;height:220px;border-radius:50%;
+  border:16px solid rgba(227,192,75,.5);
+  bottom:-80px;left:-40px;
+}
+.bloque-ejes .etiqueta{color:var(--dorado)}
+.bloque-ejes .titulo{font-family:var(--titulos);color:var(--crema)}
+
+.ejes-encabezado{
+  display:inline-flex;align-items:center;gap:.7rem;
+  margin:1.5rem 0 0;
+  font-family:var(--titulos);
+  font-weight:700;letter-spacing:.03em;
+  font-size:clamp(1.2rem,4vw,1.6rem);
+  color:var(--crema);
+}
+.chip{
+  display:inline-grid;place-items:center;
+  width:54px;height:54px;border-radius:50%;
+  background:var(--dorado);
+  font-size:1.5rem;
+  box-shadow:0 0 0 5px rgba(227,192,75,.35);
+}
+
+.ejes-grid{
+  list-style:none;padding:0;
+  margin:2.4rem 0 0;
+  display:grid;gap:1.1rem;
+}
+.eje{
+  display:flex;flex-direction:column;gap:.45rem;
+  border-radius:22px;padding:1.35rem 1.3rem;
+  box-shadow:0 14px 26px rgba(30,20,42,.4);
+}
+.eje-emoji{
+  align-self:flex-start;
+  display:inline-grid;place-items:center;
+  width:46px;height:46px;border-radius:16px;
+  background:var(--crema);font-size:1.7rem;
+}
+.eje h3{
+  font-family:var(--titulos);
+  font-size:1.12rem;font-weight:700;color:var(--teal-oscuro);
+  letter-spacing:.05em;margin:0;
+}
+.eje p{font-size:.95rem;color:var(--texto);line-height:1.55;margin:0}
+.eje--organizar,.eje--vincular{background:var(--teal-claro)}
+.eje--aprender,.eje--sostener{background:var(--violeta-claro)}
+.eje--concentrar,.eje--avanzar{background:var(--dorado-claro)}
+
+.ejes-frase{
+  margin:2.8rem 0 0;
+  margin-left:auto;margin-right:auto;
+  max-width:780px;text-align:center;
+  font-family:var(--titulos);
+  font-size:clamp(1.1rem,3.8vw,1.6rem);
+  font-weight:700;line-height:1.5;
+  color:var(--crema);
+  padding:1.7rem 1.4rem;
+  border:1px solid rgba(251,246,240,.25);
+  border-radius:26px;
+}
+.ejes-frase .mano{
+  font-size:1.2em;color:var(--dorado);
+}
+
+/* ---------- 10. BLOQUE 5 · ¿Qué vas a encontrar? ---------- */
+.encontrar-grid{
+  list-style:none;padding:0;
+  margin:1.6rem 0 0;
+  display:grid;gap:1.05rem;
+}
+.encontrar-tarjeta{
+  display:flex;flex-direction:column;gap:.45rem;
+  background:var(--blanco);
+  border:1px solid var(--sutil);
+  border-radius:var(--radio);
+  padding:1.35rem 1.25rem;
+  box-shadow:0 8px 18px rgba(41,38,31,.1);
+}
+.encontrar-emoji{
+  align-self:flex-start;
+  display:inline-grid;place-items:center;
+  width:52px;height:52px;border-radius:16px;
+  background:var(--crema);font-size:1.75rem;
+}
+.encontrar-tarjeta:nth-child(2n) .encontrar-emoji{background:var(--teal-claro)}
+.encontrar-tarjeta:nth-child(3n) .encontrar-emoji{background:var(--dorado-claro)}
+.encontrar-tarjeta:nth-child(3n+1) .encontrar-emoji{background:var(--violeta-claro)}
+.encontrar-tarjeta h3{
+  font-family:var(--titulos);
+  font-size:1.12rem;font-weight:700;color:var(--teal-oscuro);
+  margin:0;
+}
+.encontrar-tarjeta p{
+  font-size:.95rem;color:var(--texto);line-height:1.55;margin:0;
+}
+
+/* ---------- 11. BLOQUE 6 · LA INVITACIÓN (fondo de color) ---------- */
+.bloque-invitacion{
+  background:linear-gradient(180deg,var(--teal-claro) 0%,var(--teal) 55%,var(--teal-oscuro) 100%);
+  color:var(--crema);
+  position:relative;overflow:hidden;
+}
+.bloque-invitacion::before{
+  content:"";position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:rgba(93,65,141,.14);
+  top:-80px;right:-50px;
+}
+.bloque-invitacion::after{
+  content:"";position:absolute;
+  width:250px;height:250px;border-radius:50%;
+  border:16px solid rgba(227,192,75,.6);
+  bottom:-70px;left:-60px;
+}
+.contenedor-invitacion{
+  position:relative;
+  max-width:780px;
+  background:var(--crema);
+  border-radius:30px;
+  padding:clamp(2.8rem,9vw,4.5rem) clamp(1.4rem,4vw,2.6rem);
+  text-align:center;
+  box-shadow:var(--sombra);
+}
+.invitacion-titulo{
+  font-family:var(--titulos);
+  font-size:clamp(1.6rem,5.4vw,2.4rem);
+  font-weight:700;color:var(--teal-oscuro);
+  line-height:1.25;margin:0 0 1.3rem;
+}
+.invitacion-texto{
+  font-size:clamp(1.05rem,3.4vw,1.3rem);
+  color:var(--tinta);margin:0;
+}
+.invitacion-texto + .invitacion-texto{margin-top:.8rem}
+.invitacion-texto .mano{
+  font-size:1.15em;color:var(--violeta);
+}
+.contenedor-invitacion .boton{margin-top:2.4rem}
+.invitacion-aviso{
+  font-size:.98rem;color:var(--texto);
+  line-height:1.6;margin:1.2rem 0 0;
+}
+
+/* ---------- 12. BLOQUE 7 · Cierre / pie (teal oscuro) ---------- */
+.cierre{
+  background:var(--teal-oscuro);
+  color:var(--crema);
+  text-align:center;
+  padding:3.4rem 0 4.2rem;
+  position:relative;overflow:hidden;
+}
+.cierre::before{
+  content:"";position:absolute;
+  width:180px;height:180px;border-radius:50%;
+  background:rgba(227,192,75,.28);
+  top:-50px;left:-40px;
+}
+.cierre::after{
+  content:"";position:absolute;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(93,65,141,.35);
+  bottom:-40px;right:-30px;
+}
+.cierre-logo{
+  width:92px;height:92px;
+  object-fit:contain;
+  border-radius:50%;
+  background:var(--blanco);
+  box-shadow:0 0 0 4px rgba(227,192,75,.55);
+  margin:0;
+}
+.cierre-aviso{
+  color:rgba(251,246,240,.88);font-size:.95rem;
+  margin:.8rem 0 0;
+}
+.cierre-nav{
+  display:flex;flex-wrap:wrap;gap:.55rem;
+  justify-content:center;
+  margin:1.9rem 0 0;
+}
+.cierre-nav a{
+  color:var(--crema);text-decoration:none;font-size:.9rem;
+  padding:.35rem .75rem;
+  border:1px solid rgba(251,246,240,.3);
+  border-radius:999px;
+  transition:background .18s ease;
+}
+.cierre-nav a:hover{background:rgba(251,246,240,.16)}
+.cierre .boton-grande{
+  margin-top:2.1rem;
+  background:var(--violeta);
+  box-shadow:0 14px 28px rgba(93,65,141,.3);
+}
+.cierre .boton-grande:hover{background:var(--violeta-oscuro)}
+.cierre-copy{
+  color:rgba(251,246,240,.75);font-size:.85rem;
+  margin:2.3rem 0 0;
+}
+
+/* ---------- 13. Botón flotante de WhatsApp ---------- */
+.flotante{
+  position:fixed;right:1.1rem;bottom:1.1rem;z-index:70;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--teal);color:var(--crema);
+  display:grid;place-items:center;
+  box-shadow:0 12px 26px rgba(31,111,108,.32);
+  transition:transform .18s ease,background .18s ease;
+}
+.flotante:hover{background:var(--teal-oscuro);transform:scale(1.07)}
+.flotante:focus-visible{outline:3px solid var(--dorado);outline-offset:3px}
+.flotante svg{width:27px;height:27px}
+
+/* ---------- 14. Animaciones de aparición al hacer scroll ---------- */
+/* Solo se aplican si JS está activo (clase .js en <html>); sin JS el
+   contenido se muestra siempre, sin depender de JavaScript. */
+.js .reveal{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .7s ease,transform .7s ease;
+  transition-delay:var(--retraso,0s);
+}
+.js .reveal.visible{opacity:1;transform:none}
+
+/* ---------- 15. Responsive ---------- */
+@media (min-width:560px){
+  .compartir-lista{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:640px){
+  .frases{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:660px){
+  .ejes-grid{grid-template-columns:repeat(2,1fr)}
+  .encontrar-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:760px){
+  .que-es-grid{grid-template-columns:1.05fr .95fr;align-items:center;gap:2.6rem}
+}
+@media (min-width:1000px){
+  .frases{grid-template-columns:repeat(3,1fr)}
+  .ejes-grid{grid-template-columns:repeat(3,1fr)}
+  .encontrar-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:1080px){
+  .portada{padding:2.5rem 2rem}
+}
+
+/* ---------- 16. Preferencias de movimiento reducidas ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal,.js .reveal.visible{opacity:1;transform:none;transition:none}
+  .boton,.flotante{transition:none}
+}

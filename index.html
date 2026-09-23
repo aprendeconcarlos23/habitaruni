@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habitar Universidad — Comunidad de Aprender con Sentido</title>
+  <meta name="description" content="HABITAR UNIVERSIDAD es una comunidad gratuita para estudiantes: herramientas para organizarte, aprender mejor, concentrarte, sostenerte y avanzar." />
+  <meta name="theme-color" content="#FBF6F0" />
+
+  <link rel="icon" type="image/png" href="assets/img/logo1.png" />
+
+  <!-- Tipografías: League Spartan (títulos) · Cormorant (resaltar) · Montserrat (textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=League+Spartan:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ================================================================
+  WHATSAPP: los 5 enlaces usan el enlace corto de invitación
+  (así el número de teléfono queda resguardado, no aparece en el HTML)
+  https://wa.link/2300v4
+  Está aplicado en los 5 enlaces: barra superior, portada, invitación,
+  pie de página y botón flotante. Si algún día querés usar un enlace
+  de invitación a grupo (https://chat.whatsapp.com/...), reemplazalo.
+================================================================= -->
+
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <header class="barra">
+    <a class="marca" href="#portada" aria-label="Habitar Universidad, ir al inicio">
+      <img class="marca-logo" src="assets/img/logo1.png" alt="HABITAR Universidad" />
+    </a>
+    <a class="boton boton-chico" href="https://wa.link/2300v4">💚 Sumarme</a>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============ BLOQUE 1 · PORTADA ============ -->
+    <section class="bloque portada" id="portada" aria-labelledby="titulo-portada">
+      <div class="decor decor--a" aria-hidden="true"></div>
+      <div class="decor decor--b" aria-hidden="true"></div>
+      <div class="decor decor--c" aria-hidden="true"></div>
+      <div class="decor decor--d" aria-hidden="true"></div>
+      <div class="decor decor--e" aria-hidden="true"></div>
+
+      <div class="portada-contenido">
+        <h1 id="titulo-portada">
+          <!--<span class="h1-linea">HABITAR</span>
+          <span class="h1-linea h1-linea--clara">Universidad</span>-->
+          <img class="portada-logo" src="assets/img/logolargo.png" alt="HABITAR Universidad"
+            width="1000" height="436" />
+        </h1>
+
+        <p class="portada-pregunta">¿Vas a la universidad y sentís que nadie te enseñó a habitarla?</p>
+
+        <p class="portada-texto">
+          Entrar a una carrera no es solamente aprender materias.
+          También es aprender a organizarte, concentrarte, encontrar tu manera de aprender, vincularte, sostenerte y avanzar.
+        </p>
+
+        <p class="portada-eslogan">🌱 Una comunidad para transitar la universidad sin perderte en el camino.</p>
+
+        <a class="boton boton-grande" href="https://wa.link/2300v4">💚 QUIERO CONOCER HABITAR</a>
+        <p class="portada-aviso">Comunidad gratuita · Aprender con Sentido</p>
+
+        <img class="foto foto--panoramica portada-foto" src="assets/img/fotohero.jpg"
+          alt="Momento de la comunidad de Habitar Universidad" />
+
+        <a class="portada-vermas" href="#te-esta-pasando">Conocé el espacio
+          <svg class="flecha-abajo" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 6 L18 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 2 · QUIZÁS TE ESTÁ PASANDO ============ -->
+    <section class="bloque" id="te-esta-pasando" aria-labelledby="titulo-2">
+      <div class="contenedor">
+        <p class="etiqueta">¿Te suena familiar?</p>
+        <h2 id="titulo-2" class="titulo">QUIZÁS TE ESTÁ PASANDO…</h2>
+        <p class="intro">La universidad puede sentirse así:</p>
+
+        <ul class="frases">
+          <li class="frase">“Me atraso con todo.”</li>
+          <li class="frase">“No sé cómo estudiar.”</li>
+          <li class="frase">“Me cuesta concentrarme.”</li>
+          <li class="frase">“Siento que los demás se adaptan mejor.”</li>
+          <li class="frase">“No sé cómo organizarme.”</li>
+          <li class="frase">“Quiero avanzar, pero a veces no sé por dónde empezar.”</li>
+        </ul>
+
+        <img class="foto foto--chica reveal" src="assets/img/foto1.jpg"
+          alt="Estudiante universitaria reflexionando" loading="lazy" />
+
+        <p class="cierre">Si alguna de estas frases te resulta familiar, <br /><strong>HABITAR es para vos</strong>.</p>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 3 · ¿QUÉ ES HABITAR UNIVERSIDAD? ============ -->
+    <section class="bloque" id="que-es" aria-labelledby="titulo-3">
+      <div class="contenedor">
+        <p class="etiqueta">¿Qué es esto?</p>
+        <h2 id="titulo-3" class="titulo">¿QUÉ ES HABITAR UNIVERSIDAD?</h2>
+
+        <div class="que-es-grid">
+          <div class="que-es-texto">
+            <p class="que-es-destacado">🎓 No se trata solamente de aprobar.</p>
+            <p>Se trata de aprender a <em class="subrayado">habitar</em> tu recorrido universitario.</p>
+            <p>
+              HABITAR UNIVERSIDAD es una comunidad de <strong>Aprender con Sentido</strong>
+              pensada para estudiantes que están por comenzar, están transitando una carrera
+              o necesitan volver a encontrar su manera de avanzar.
+            </p>
+
+            <img class="foto reveal" src="assets/img/foto2.jpg"
+              alt="Participantes de Habitar Universidad compartiendo" loading="lazy" />
+          </div>
+
+          <div class="tarjeta compartir">
+            <p class="compartir-titulo">Un espacio para compartir:</p>
+            <ul class="compartir-lista">
+              <li><span aria-hidden="true">🌱</span> herramientas</li>
+              <li><span aria-hidden="true">🧠</span> estrategias de aprendizaje</li>
+              <li><span aria-hidden="true">💬</span> preguntas</li>
+              <li><span aria-hidden="true">🧭</span> experiencias</li>
+              <li><span aria-hidden="true">🫂</span> acompañamiento</li>
+              <li><span aria-hidden="true">✨</span> pequeños desafíos</li>
+            </ul>
+            <p class="compartir-sin">Sin competir. Sin compararte.<br />Sin tener que hacerlo <em>perfecto</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 4 · LOS 6 EJES HABITAR ============ -->
+    <section class="bloque bloque-ejes" id="ejes" aria-labelledby="titulo-4">
+      <div class="contenedor">
+        <p class="etiqueta">El corazón del método</p>
+        <h2 id="titulo-4" class="titulo">LOS 6 EJES HABITAR</h2>
+        <p class="ejes-encabezado"><span class="chip" aria-hidden="true">🧭</span> APRENDER A HABITAR</p>
+
+        <ul class="ejes-grid">
+          <li class="eje eje--organizar reveal">
+            <span class="eje-emoji" aria-hidden="true">📅</span>
+            <h3>ORGANIZAR</h3>
+            <p>Ordenar tu tiempo, tus tareas y tus prioridades.</p>
+          </li>
+          <li class="eje eje--aprender reveal">
+            <span class="eje-emoji" aria-hidden="true">🧠</span>
+            <h3>APRENDER</h3>
+            <p>Encontrar maneras de comprender, estudiar y recordar.</p>
+          </li>
+          <li class="eje eje--concentrar reveal">
+            <span class="eje-emoji" aria-hidden="true">🎯</span>
+            <h3>CONCENTRAR</h3>
+            <p>Aprender a empezar, enfocarte y volver cuando te distraés.</p>
+          </li>
+          <li class="eje eje--vincular reveal">
+            <span class="eje-emoji" aria-hidden="true">🫂</span>
+            <h3>VINCULAR</h3>
+            <p>Encontrar tu lugar, participar y pedir ayuda.</p>
+          </li>
+          <li class="eje eje--sostener reveal">
+            <span class="eje-emoji" aria-hidden="true">❤️</span>
+            <h3>SOSTENER</h3>
+            <p>Atravesar frustraciones, cansancio, miedo y comparación.</p>
+          </li>
+          <li class="eje eje--avanzar reveal">
+            <span class="eje-emoji" aria-hidden="true">🎓</span>
+            <h3>AVANZAR</h3>
+            <p>Reconocer tus pasos y seguir construyendo tu recorrido.</p>
+          </li>
+        </ul>
+
+        <img class="foto reveal" src="assets/img/foto3.jpg"
+          alt="Grupo de estudiantes de Habitar Universidad" loading="lazy" />
+
+        <p class="ejes-frase reveal">
+          Organizarme para poder aprender, concentrarme, vincularme y sostenerme.
+          <em class="mano">Para avanzar.</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 5 · ¿QUÉ VAS A ENCONTRAR? ============ -->
+    <section class="bloque" id="vas-a-encontrar" aria-labelledby="titulo-5">
+      <div class="contenedor">
+        <p class="etiqueta">Adentro del espacio</p>
+        <h2 id="titulo-5" class="titulo">¿QUÉ VAS A ENCONTRAR?</h2>
+        <p class="intro">🌱 Dentro de HABITAR vas a encontrar</p>
+
+        <ul class="encontrar-grid">
+          <li class="encontrar-tarjeta reveal">
+            <span class="encontrar-emoji" aria-hidden="true">📅</span>
+            <h3>Herramientas para organizarte</h3>
+            <p>Ideas simples para ordenar tu semana y tus prioridades.</p>
+          </li>
+          <li class="encontrar-tarjeta reveal">
+            <span class="encontrar-emoji" aria-hidden="true">🧠</span>
+            <h3>Recursos para aprender mejor</h3>
+            <p>Estrategias para comprender, estudiar y recordar.</p>
+          </li>
+          <li class="encontrar-tarjeta reveal">
+            <span class="encontrar-emoji" aria-hidden="true">❤️</span>
+            <h3>Espacios para sostenerte</h3>
+            <p>Herramientas para atravesar frustraciones y momentos difíciles.</p>
+          </li>
+          <li class="encontrar-tarjeta reveal">
+            <span class="encontrar-emoji" aria-hidden="true">🫂</span>
+            <h3>Comunidad</h3>
+            <p>Un lugar donde puedas preguntar, compartir y descubrir que no sos la única persona atravesando esto.</p>
+          </li>
+          <li class="encontrar-tarjeta reveal">
+            <span class="encontrar-emoji" aria-hidden="true">🧭</span>
+            <h3>Experiencias HABITAR</h3>
+            <p>Preguntas, desafíos y actividades para conocerte como estudiante.</p>
+          </li>
+        </ul>
+
+        <img class="foto foto--panoramica reveal" src="assets/img/foto4.jpg"
+          alt="Encuentro de la comunidad de Habitar Universidad" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 6 · LA INVITACIÓN ============ -->
+    <section class="bloque bloque-invitacion" id="invitacion" aria-labelledby="titulo-6">
+      <div class="contenedor contenedor-invitacion">
+        <h2 id="titulo-6" class="invitacion-titulo reveal">💚 No tenés que saberlo todo para empezar.</h2>
+        <p class="invitacion-texto reveal">Tampoco tenés que hacerlo <em class="mano">solo/a</em>.</p>
+        <p class="invitacion-texto reveal">Podés empezar por aquello que hoy más necesitás.</p>
+
+        <a class="boton boton-gigante" href="https://wa.link/2300v4">QUIERO SUMARME A HABITAR</a>
+        <p class="invitacion-aviso">Es gratuito.<br />Podés entrar, conocer el espacio y decidir cómo participar.</p>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 7 · CIERRE / PIE ============ -->
+    <footer class="cierre" id="cierre" aria-labelledby="titulo-footer">
+      <div class="contenedor">
+        <img id="titulo-footer" class="cierre-logo" src="assets/img/logo1.png" alt="HABITAR Universidad" />
+        <p class="cierre-aviso">Comunidad gratuita · Aprender con Sentido</p>
+
+        <nav class="cierre-nav" aria-label="Secciones de la página">
+          <a href="#te-esta-pasando">¿Te está pasando?</a>
+          <a href="#que-es">Qué es HABITAR</a>
+          <a href="#ejes">Los 6 ejes</a>
+          <a href="#vas-a-encontrar">Qué vas a encontrar</a>
+        </nav>
+
+        <a class="boton boton-grande" href="https://wa.link/2300v4">💚 QUIERO CONOCER HABITAR</a>
+        <p class="cierre-copy">© 2026 Habitar Universidad · Hecho con 💚 en comunidad</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a class="flotante" href="https://wa.link/2300v4" aria-label="Abrir la comunidad de WhatsApp de Habitar Universidad">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2.5" y="4" width="19" height="14" rx="6.5"/>
+      <path d="M7.5 18 L5 21.5"/>
+      <circle cx="8.2" cy="10.5" r="1.35" fill="currentColor"/>
+      <circle cx="12" cy="10.5" r="1.35" fill="currentColor"/>
+      <circle cx="15.8" cy="10.5" r="1.35" fill="currentColor"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
