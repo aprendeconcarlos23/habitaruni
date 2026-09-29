@@ -19,8 +19,8 @@ cPanel…): se sube la carpeta completa y funciona.
 
 ```
 HabitarUniversidadLP/
-├─ index.html          ← todo el contenido y los enlaces (14,6 KB)
-├─ styles.css          ← todos los estilos, con variables en :root (23,3 KB)
+├─ index.html          ← todo el contenido y los enlaces (15,0 KB)
+├─ styles.css          ← todos los estilos, con variables en :root (24,7 KB)
 ├─ script.js           ← animaciones de aparición al hacer scroll (1,5 KB)
 ├─ README.md           ← este archivo
 └─ assets/
@@ -67,6 +67,7 @@ No hay nada que compilar ni instalar. Si no tenés Python, cualquier servidor es
 | Que algo aparezca con animación al bajar | Agregarle la clase `reveal` al elemento (`script.js` se encarga) |
 | Que un botón o un ícono reaccione al pasar el cursor | `styles.css`, buscá el `:hover` del elemento (ver punto 7) |
 | El emoji o el ícono de un botón | `index.html`: va dentro de `<span class="boton-emoji" aria-hidden="true">` (así hereda la animación al pasar el cursor) |
+| Las cuatro frases “Podés…” de la invitación | `index.html`, bloque 6 (lista `.invitacion-lista`); los estilos están en `styles.css`, sección 11 |
 | El aviso del pie, el año del copyright y los enlaces del pie | `index.html`, bloque 7 (cierre y pie) |
 
 **Bloques de la página (en orden de aparición):** barra superior · 1 Portada · 2 “Quizás te está
@@ -301,6 +302,22 @@ el respaldo.
    `styles.css`, sección 7) y `.cierre` quedó únicamente para el pie. Se verificó con una simulación del
    encadenamiento (cascada): al `<footer>` ahora solo le aplica la regla del pie, sin `max-width` ni
    márgenes, y al párrafo solo la suya.
+10. **Corazones amarillos en los botones:** los corazones de los botones de la barra superior y de la
+    portada pasaron de 💚 (verde) a **💛 (amarillo)**, para acercarlos al dorado de la identidad
+    (`--dorado: #E3C04B`). Es solo el carácter del emoji dentro del mismo
+    `<span class="boton-emoji">`: no hubo cambios de HTML estructural ni de CSS, y la animación al
+    pasar el cursor sigue igual. El botón del pie no entra en este cambio porque su ícono es el logo de
+    WhatsApp (punto 7). Ojo: el amarillo exacto del emoji depende del sistema operativo; si se quiere
+    **exactamente** el dorado de la marca, hay que reemplazarlo por un `<svg>` de corazón con
+    `fill="currentColor"` (o `fill="#E3C04B"`).
+11. **Las cuatro frases de la invitación:** en el bloque 6, debajo de “Tampoco tenés que hacerlo
+    solo/a.”, se agregó una lista con *Podés llegar con dudas. / Podés estar atrasado/a. / Podés no
+    saber cómo estudiar. / Podés sentirte perdido/a.* Cada línea lleva la clase `reveal`, así que
+    aparecen escalonadas al bajar (el `script.js` ya se encarga). Se estilizaron con `.invitacion-lista`
+    (sección 11 de `styles.css`): cursiva de la Cormorant en violeta oscuro, el “Podés” en League
+    Spartan teal para marcar el ritmo, y un punto dorado con halo como viñeta; al pasar el cursor la
+    frase se corre y el punto se abre, efecto que se apaga junto con el resto si el sistema pide
+    reducir movimiento. Para editar las frases se cambia una línea por cada `<li>` en `index.html`.
 
 ## 10. Validación realizada
 
@@ -309,9 +326,9 @@ el respaldo.
   (los 6 se probaron después de sumar las animaciones). El resto de las imágenes ya estaba verificado
   y no se tocó.
 - `index.html`: 6 bloques `<section>` abiertos y cerrados, 8 `<img>` y los **3 íconos de botón** (dos
-  emojis 💚 y el logo de WhatsApp del pie) dentro de `<span class="boton-emoji" aria-hidden="true">`.
+  corazones amarillos 💛 y el logo de WhatsApp del pie) dentro de `<span class="boton-emoji" aria-hidden="true">`.
   En el HTML no aparece escrito ningún número de teléfono.
-- `styles.css`: **172 llaves `{` y 172 `}`** y **268 paréntesis** de cada tipo, sin desbalances.
+- `styles.css`: **178 llaves `{` y 178 `}`** y **279 paréntesis** de cada tipo, sin desbalances.
   Además se validó bloque por bloque que cada declaración tenga la forma `propiedad: valor`
   (**0 declaraciones mal formadas**).
 - Sin procesos de servidor ni de procesamiento de imágenes quedando en segundo plano.
