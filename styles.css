@@ -330,14 +330,18 @@ a{color:inherit}
 .frase:nth-child(3n+1)::before{background:var(--dorado)}
 .frase:nth-child(3n+2)::before{background:var(--teal)}
 .frase:nth-child(3n)::before{background:var(--violeta)}
-.cierre{
+/* Párrafo de cierre del bloque 2. OJO: no comparte clase con el pie (que usa
+   .cierre). Cuando las dos reglas se llamaban .cierre, este párrafo heredaba el
+   fondo oscuro y los círculos decorativos del pie, y el pie heredaba de acá el
+   max-width:640px (por eso su fondo no llegaba a los bordes de la pantalla). */
+.cierre-texto{
   text-align:center;
   font-size:clamp(1.05rem,3.4vw,1.32rem);
   color:var(--tinta);line-height:1.55;
   max-width:640px;
   margin:2rem auto 0;
 }
-.cierre strong{color:var(--teal);font-weight:700}
+.cierre-texto strong{color:var(--teal);font-weight:700}
 
 /* ---------- 8. BLOQUE 3 · ¿Qué es HABITAR? ---------- */
 .que-es-grid{

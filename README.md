@@ -19,8 +19,8 @@ cPanel…): se sube la carpeta completa y funciona.
 
 ```
 HabitarUniversidadLP/
-├─ index.html          ← todo el contenido y los enlaces (14,5 KB)
-├─ styles.css          ← todos los estilos, con variables en :root (23,0 KB)
+├─ index.html          ← todo el contenido y los enlaces (14,6 KB)
+├─ styles.css          ← todos los estilos, con variables en :root (23,3 KB)
 ├─ script.js           ← animaciones de aparición al hacer scroll (1,5 KB)
 ├─ README.md           ← este archivo
 └─ assets/
@@ -291,6 +291,16 @@ el respaldo.
    `aria-labelledby="titulo-6"` y las clases quedaron iguales, así que no hubo que tocar el CSS ni los
    enlaces internos (ningún enlace apunta a `#invitacion`). Se dejó la aclaración *“a propósito: va
    después del bloque 2”* en el comentario del propio bloque.
+9. **El fondo del pie volvió a ocupar todo el ancho:** el `<p class="cierre">` del bloque 2 y el
+   `<footer class="cierre">` compartían el nombre de clase (así venía desde el primer commit), y eso
+   hacía que las dos reglas de `styles.css` se aplicaran a los dos elementos. Resultado: el pie quedaba
+   limitado a `max-width:640px` con `margin:2rem auto 0`, o sea que su fondo teal oscuro era una columna
+   centrada que no llegaba a los bordes de la pantalla, y el párrafo del bloque 2 se llevaba el fondo
+   oscuro, los círculos decorativos y su `<strong>` en teal (casi ilegible sobre ese fondo). Se
+   separaron las clases: el párrafo pasó a **`.cierre-texto`** (en `index.html` y en sus dos reglas de
+   `styles.css`, sección 7) y `.cierre` quedó únicamente para el pie. Se verificó con una simulación del
+   encadenamiento (cascada): al `<footer>` ahora solo le aplica la regla del pie, sin `max-width` ni
+   márgenes, y al párrafo solo la suya.
 
 ## 10. Validación realizada
 
@@ -301,7 +311,7 @@ el respaldo.
 - `index.html`: 6 bloques `<section>` abiertos y cerrados, 8 `<img>` y los **3 íconos de botón** (dos
   emojis 💚 y el logo de WhatsApp del pie) dentro de `<span class="boton-emoji" aria-hidden="true">`.
   En el HTML no aparece escrito ningún número de teléfono.
-- `styles.css`: **172 llaves `{` y 172 `}`** y **266 paréntesis** de cada tipo, sin desbalances.
+- `styles.css`: **172 llaves `{` y 172 `}`** y **268 paréntesis** de cada tipo, sin desbalances.
   Además se validó bloque por bloque que cada declaración tenga la forma `propiedad: valor`
   (**0 declaraciones mal formadas**).
 - Sin procesos de servidor ni de procesamiento de imágenes quedando en segundo plano.
