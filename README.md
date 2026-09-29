@@ -19,8 +19,8 @@ cPanel…): se sube la carpeta completa y funciona.
 
 ```
 HabitarUniversidadLP/
-├─ index.html          ← todo el contenido y los enlaces (13,6 KB)
-├─ styles.css          ← todos los estilos, con variables en :root (22,8 KB)
+├─ index.html          ← todo el contenido y los enlaces (14,5 KB)
+├─ styles.css          ← todos los estilos, con variables en :root (23,0 KB)
 ├─ script.js           ← animaciones de aparición al hacer scroll (1,5 KB)
 ├─ README.md           ← este archivo
 └─ assets/
@@ -66,12 +66,19 @@ No hay nada que compilar ni instalar. Si no tenés Python, cualquier servidor es
 | Los 6 ejes | `index.html`, bloque 4 |
 | Que algo aparezca con animación al bajar | Agregarle la clase `reveal` al elemento (`script.js` se encarga) |
 | Que un botón o un ícono reaccione al pasar el cursor | `styles.css`, buscá el `:hover` del elemento (ver punto 7) |
-| El emoji 💚 de un botón | `index.html`: va dentro de `<span class="boton-emoji" aria-hidden="true">` para poder animarlo |
+| El emoji o el ícono de un botón | `index.html`: va dentro de `<span class="boton-emoji" aria-hidden="true">` (así hereda la animación al pasar el cursor) |
 | El aviso del pie, el año del copyright y los enlaces del pie | `index.html`, bloque 7 (cierre y pie) |
 
-**Bloques de la página (en orden):** barra superior · 1 Portada · 2 “Quizás te está pasando” ·
-3 “¿Qué es Habitar Universidad?” · 4 Los 6 ejes · 5 “¿Qué vas a encontrar?” · 6 La invitación ·
-7 Cierre y pie.
+**Bloques de la página (en orden de aparición):** barra superior · 1 Portada · 2 “Quizás te está
+pasando” · **6 La invitación** · 3 “¿Qué es Habitar Universidad?” · 4 Los 6 ejes · 5 “¿Qué vas a
+encontrar?” · 7 Cierre y pie.
+
+> **Ojo con la numeración:** cada bloque se identifica por el número de su comentario
+> `<!-- ==== BLOQUE n · … ==== -->`, y **ese número no cambia aunque el bloque se mueva de lugar**. Hoy
+> el bloque **6 (La invitación)** va a propósito después del bloque 2, así que el orden de los números
+> en el HTML **no** coincide con el orden de la página. Para mover un bloque, cortá su comentario y su
+> `<section>` completos (con `id` y `aria-labelledby` incluidos) y pegalos en el lugar nuevo: el CSS y
+> los enlaces internos (que usan `#id`) no necesitan ningún cambio.
 
 ## 4. Los enlaces de WhatsApp
 
@@ -175,7 +182,7 @@ cursor entra en el elemento y también cuando el foco llega con el teclado (`:fo
 
 | Elemento | Qué hace al pasar el cursor |
 | --- | --- |
-| Botones `.boton` (barra, portada, invitación, pie) | Se elevan, la sombra crece, un brillo los recorre de izquierda a derecha y el emoji 💚 da un salto. Al hacer clic se “hunden” apenas (`:active`). |
+| Botones `.boton` (barra, portada, invitación, pie) | Se elevan, la sombra crece, un brillo los recorre de izquierda a derecha y el emoji o el logo de WhatsApp del botón da un salto. Al hacer clic se “hunden” apenas (`:active`). |
 | Botón flotante de WhatsApp | Crece, sale una onda desde el borde y el ícono hace un pequeño vaivén |
 | Logo de la barra y logo del pie | Giran un poco y se agrandan; la sombra (y el halo dorado del pie) se marca más |
 | Enlace “Conocé el espacio” de la portada | El texto pasa a violeta y la flecha baja y crece |
@@ -189,9 +196,11 @@ cursor entra en el elemento y también cuando el foco llega con el teclado (`:fo
 
 - Cada efecto vive en la **sección de su bloque** dentro de `styles.css`, así se encuentra rápido: el
   `transition` va en la regla base del elemento y el estado final en su `:hover`.
-- El emoji de un botón está envuelto en `<span class="boton-emoji" aria-hidden="true">`: es lo que
+- El ícono de un botón está envuelto en `<span class="boton-emoji" aria-hidden="true">`: es lo que
   permite animarlo por separado y, de paso, los lectores de pantalla no anuncian “corazón verde”
-  antes del texto.
+  antes del texto. En el botón del pie ese ícono es el **logo de WhatsApp**: un `<svg>` en línea
+  (`.icono-whatsapp`, `fill="currentColor"`), así toma la crema del texto y se escala con la
+  tipografía del botón.
 - El brillo del botón es un `::after` con un degradado blanco translúcido (`pointer-events:none`, no
   molesta al clic); el botón lleva `overflow:hidden` para que el brillo no se salga de las esquinas
   redondeadas.
@@ -267,6 +276,21 @@ el respaldo.
    usaba el sitio (transiciones de 0,18 a 0,5 s). Los 3 emojis 💚 de los botones se envolvieron en
    `<span class="boton-emoji" aria-hidden="true">` y se sumó `:focus-visible` a los estados de hover
    para que el efecto también se vea navegando con teclado.
+7. **Logo de WhatsApp en el botón del pie:** se reemplazó el emoji 💚 de ese botón por el **logo de
+   WhatsApp** (SVG en línea de 24×24, con la ruta del set *Simple Icons*, verificada carácter por
+   carácter contra el archivo original). Usa `fill="currentColor"`, así que toma la crema del texto
+   del botón, y la clase `.icono-whatsapp` (sección 4 de `styles.css`) lo escala a `1.15em` para que
+   acompañe el tamaño de la tipografía. Va dentro del mismo `<span class="boton-emoji">`, por lo que
+   hereda la animación al pasar el cursor y sigue invisible para los lectores de pantalla. Los otros
+   dos botones (barra superior y portada) conservan el 💚 porque hoy llevan al formulario de Google,
+   no a WhatsApp.
+8. **La invitación pasó a ir después del bloque 2:** el bloque 6 (`<section class="bloque
+   bloque-invitacion" id="invitacion">`) se movió desde el final de la página —justo antes del pie— al
+   lugar inmediatamente posterior al bloque 2, para que el llamado a la acción aparezca más temprano.
+   Se movieron el comentario y el `<section>` completos, sin tocar textos ni estilos: el `id`, el
+   `aria-labelledby="titulo-6"` y las clases quedaron iguales, así que no hubo que tocar el CSS ni los
+   enlaces internos (ningún enlace apunta a `#invitacion`). Se dejó la aclaración *“a propósito: va
+   después del bloque 2”* en el comentario del propio bloque.
 
 ## 10. Validación realizada
 
@@ -274,10 +298,10 @@ el respaldo.
   `index.html`, `styles.css`, `script.js` y las imágenes `logo1.png`, `logolargo.png` y `foto3.jpg`
   (los 6 se probaron después de sumar las animaciones). El resto de las imágenes ya estaba verificado
   y no se tocó.
-- `index.html`: 6 bloques `<section>` abiertos y cerrados, 8 `<img>` y los **3 emojis de botón**
-  envueltos en `<span class="boton-emoji" aria-hidden="true">`. En el HTML no aparece escrito ningún
-  número de teléfono.
-- `styles.css`: **171 llaves `{` y 171 `}`** y **252 paréntesis** de cada tipo, sin desbalances.
+- `index.html`: 6 bloques `<section>` abiertos y cerrados, 8 `<img>` y los **3 íconos de botón** (dos
+  emojis 💚 y el logo de WhatsApp del pie) dentro de `<span class="boton-emoji" aria-hidden="true">`.
+  En el HTML no aparece escrito ningún número de teléfono.
+- `styles.css`: **172 llaves `{` y 172 `}`** y **266 paréntesis** de cada tipo, sin desbalances.
   Además se validó bloque por bloque que cada declaración tenga la forma `propiedad: valor`
   (**0 declaraciones mal formadas**).
 - Sin procesos de servidor ni de procesamiento de imágenes quedando en segundo plano.
